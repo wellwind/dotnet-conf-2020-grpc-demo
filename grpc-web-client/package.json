@@ -1,0 +1,28 @@
+{
+  "name": "grpc-web-client",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "lite-server .",
+    "build": "webpack client.js",
+    "build:watch": "npm run build -- --watch",
+    "protobuf:gen": "protoc -I=. greet.proto --js_out=import_style=commonjs:. --grpc-web_out=import_style=commonjs,mode=grpcwebtext:.",
+    "envoy": "docker run -d -v \"$(pwd)\"/envoy.yaml:/etc/envoy/envoy.yaml:ro -p 9090:9090  envoyproxy/envoy:v1.16.1"
+  },
+  "devDependencies": {
+    "@grpc/grpc-js": "~1.0.5",
+    "@grpc/proto-loader": "~0.5.4",
+    "async": "~1.5.2",
+    "google-protobuf": "~3.14.0",
+    "grpc-web": "~1.2.1",
+    "lodash": "~4.17.0",
+    "webpack": "~4.43.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
